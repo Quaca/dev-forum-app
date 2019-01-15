@@ -4,8 +4,8 @@ const Schema = mongose.Schema;
 //Create Schema
 const PostSchema = new Schema({
   user: {
-    type: Schema.object.ObjectId,
-    ref: users
+    type: Schema.Types.ObjectId,
+    ref: "users"
   },
   text: {
     type: String,
@@ -20,7 +20,7 @@ const PostSchema = new Schema({
   likes: [
     {
       user: {
-        type: Schema.object.ObjectId,
+        type: Schema.Types.ObjectId,
         reF: "users"
       }
     }
@@ -28,7 +28,7 @@ const PostSchema = new Schema({
   comments: [
     {
       user: {
-        type: Schema.object.ObjectId,
+        type: Schema.Types.ObjectId,
         reF: "users"
       },
       text: {
