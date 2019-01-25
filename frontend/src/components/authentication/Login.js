@@ -42,67 +42,73 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="post">
-        <form className="form newuser" onSubmit={this.onSubmit}>
-          <div className="postinfotop">
-            <h2>Log in to your account</h2>
-          </div>
-
-          <div className="posttext">
-            <div
-              className={classnames("", {
-                "mb-4": !errors.email
-              })}
-            >
-              <input
-                type="text"
-                placeholder="Email"
-                className={classnames("form-control", {
-                  "is-invalid": errors.email
-                })}
-                name="email"
-                value={this.state.email}
-                onChange={this.changeText}
-              />
-              {errors.email && (
-                <div className="invalid-feedback mb-2">{errors.email}</div>
-              )}
-            </div>
-
-            <div
-              className={classnames("", {
-                "mb-4": !errors.email
-              })}
-            >
-              <input
-                type="password"
-                placeholder="Password"
-                className={classnames("form-control", {
-                  "is-invalid": errors.password
-                })}
-                id="pass"
-                name="password"
-                value={this.state.password}
-                onChange={this.changeText}
-              />
-              {errors.password && (
-                <div className="invalid-feedback mb-2">{errors.password}</div>
-              )}
-            </div>
-            <div className="clearfix" />
-          </div>
-          {/* Sign up */}
-          <div className="postinfobot">
-            <div className="float-right postreply">
-              <div className="float-left">
-                <button type="submit" className="btn btn-success">
-                  Log in
-                </button>
+      <div className="row">
+        <div className="col-md-8 m-auto">
+          <div className="post">
+            <form className="form input-fields" onSubmit={this.onSubmit}>
+              <div className="postinfotop">
+                <h2>Log in to your account</h2>
               </div>
-            </div>
-            <div className="clearfix" />
+
+              <div className="posttext">
+                <div
+                  className={classnames("", {
+                    "mb-4": !errors.email
+                  })}
+                >
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    className={classnames("form-control", {
+                      "is-invalid": errors.email
+                    })}
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.changeText}
+                  />
+                  {errors.email && (
+                    <div className="invalid-feedback mb-2">{errors.email}</div>
+                  )}
+                </div>
+
+                <div
+                  className={classnames("", {
+                    "mb-4": !errors.email
+                  })}
+                >
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className={classnames("form-control", {
+                      "is-invalid": errors.password
+                    })}
+                    id="pass"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.changeText}
+                  />
+                  {errors.password && (
+                    <div className="invalid-feedback mb-2">
+                      {errors.password}
+                    </div>
+                  )}
+                </div>
+                <div className="clearfix" />
+              </div>
+              {/* Sign up */}
+              <div className="postinfobot">
+                <div className="float-right postreply">
+                  <div className="float-left">
+                    <button type="submit" className="btn btn-success">
+                      Log in
+                    </button>
+                  </div>
+                </div>
+                <div className="clearfix" />
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

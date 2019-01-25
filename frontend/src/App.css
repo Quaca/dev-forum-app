@@ -495,14 +495,36 @@ ul.socialicons li a:hover {
   line-height: 25px;
 }
 
-.newuser input[type="text"],
-.newuser input[type="password"] {
+.input-fields input[type="text"],
+.input-fields input[type="password"] {
   border-radius: 2px;
   box-shadow: none;
   background-color: #f1f1f1;
   padding: 20px;
   font-size: 14px;
   height: 50px;
+}
+
+.input-fields select {
+  border-radius: 2px;
+  box-shadow: none;
+  background-color: #f1f1f1;
+  font-size: 14px;
+  height: 50px;
+}
+.input-group input {
+  border-radius: 2px;
+  box-shadow: none;
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-size: 14px;
+  height: 50px;
+}
+
+.input-fields textarea {
+  border-radius: 2px;
+  box-shadow: none;
+  font-size: 14px;
 }
 
 .postinfobot {
