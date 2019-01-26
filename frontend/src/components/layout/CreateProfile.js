@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { createProfile } from "../../actions/profileActions";
 
 class CreateProfile extends Component {
   state = {
@@ -21,6 +23,12 @@ class CreateProfile extends Component {
     errors: {}
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit = e => {
     e.preventDefault();
     const profileData = {
@@ -39,7 +47,7 @@ class CreateProfile extends Component {
       instagram: this.state.instagram
     };
 
-    console.log(profileData);
+    this.props.createProfile(profileData, this.props.history);
   };
 
   changeText = e => {
@@ -48,6 +56,8 @@ class CreateProfile extends Component {
 
   render() {
     const { errors, displaySocialInputs } = this.state;
+    console.log(errors);
+    console.log(displaySocialInputs);
 
     const options = [
       { label: "Select Professional Status", value: 0 },
@@ -383,4 +393,17 @@ class CreateProfile extends Component {
   }
 }
 
-export default connect(null)(CreateProfile);
+CreateProfile.propTypes = {
+  errors: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  errors: state.errors,
+  profile: state.profile
+});
+
+export default connect(
+  mapStateToProps,
+  { createProfile }
+)(CreateProfile);

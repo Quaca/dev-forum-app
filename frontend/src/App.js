@@ -12,7 +12,7 @@ import CreateProfile from "./components/layout/CreateProfile";
 import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
 import "./App.css";
-import PrivateRoute from "./common/PrivateRoute";
+import PrivateRoute from "./components/common/PrivateRoute";
 
 //Check form token
 if (localStorage.jwtToken) {
