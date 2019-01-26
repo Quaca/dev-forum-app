@@ -11,12 +11,12 @@ export const getCurrentProfile = () => dispatch => {
         payload: res.data
       })
     )
-    .catch(err => {
+    .catch(err =>
       dispatch({
         type: GET_PROFILE,
         payload: {}
-      });
-    });
+      })
+    );
 };
 
 // Create profile
