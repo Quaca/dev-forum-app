@@ -56,8 +56,6 @@ class CreateProfile extends Component {
 
   render() {
     const { errors, displaySocialInputs } = this.state;
-    console.log(errors);
-    console.log(displaySocialInputs);
 
     const options = [
       { label: "Select Professional Status", value: 0 },
