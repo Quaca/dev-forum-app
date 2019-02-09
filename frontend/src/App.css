@@ -490,7 +490,7 @@ ul.socialicons li a:hover {
 .post .posttext {
   width: 100%;
   padding: 20px 30px 15px 30px;
-  color: #989c9e;
+  /* color: #989c9e; */
   font-size: 14px;
   line-height: 25px;
 }

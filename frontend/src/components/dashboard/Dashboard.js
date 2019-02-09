@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 
 import ProfileButtons from "./ProfileButtons";
+import Experience from "./Experience";
+import Education from "./Education";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -33,6 +35,8 @@ class Dashboard extends Component {
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
             <ProfileButtons />
+            <Experience experience={profile.experience} />
+            <Education education={profile.education} />
             <div style={{ marginBottom: "60px" }} />
             <button onClick={this.onDeleteClick} className="btn btn-danger">
               Delete my account
@@ -53,11 +57,13 @@ class Dashboard extends Component {
     }
     return (
       <div className="dashboard">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="display-4">Dashboard</h1>
-              {dashboardContent}
+        <div className="row">
+          <div className="col-md-12 m-auto">
+            <div className="post">
+              <div className="postinfotop">
+                <h2>Dashboard</h2>
+              </div>{" "}
+              <div className="posttext">{dashboardContent}</div>
             </div>
           </div>
         </div>

@@ -58,7 +58,7 @@ class AddExperience extends Component {
     return (
       <div className="add-experience">
         <div className="row">
-          <div className="col-md-8 mr-auto">
+          <div className="col-md-8 m-auto">
             <div className="post">
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
