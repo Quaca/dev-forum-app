@@ -9,6 +9,9 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import CreateProfile from "./components/layout/CreateProfile";
+import EditProfile from "./components/layout/EditProfile";
+import AddExperience from "./components/career/AddExperience";
+import AddEducation from "./components/career/AddEducation";
 import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -45,6 +48,27 @@ class App extends Component {
                     exact
                     path="/create-profile"
                     component={CreateProfile}
+                  />
+                </Switch>
+                <Switch>
+                  <PrivateRoute
+                    exact
+                    path="/edit-profile"
+                    component={EditProfile}
+                  />
+                </Switch>
+                <Switch>
+                  <PrivateRoute
+                    exact
+                    path="/add-experience"
+                    component={AddExperience}
+                  />
+                </Switch>
+                <Switch>
+                  <PrivateRoute
+                    exact
+                    path="/add-education"
+                    component={AddEducation}
                   />
                 </Switch>
                 <Switch>
