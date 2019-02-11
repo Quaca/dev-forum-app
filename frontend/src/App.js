@@ -15,6 +15,8 @@ import AddEducation from "./components/career/AddEducation";
 import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import Profiles from "./components/profiles/Profiles";
+
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
 
@@ -43,6 +45,7 @@ class App extends Component {
               <div className="container">
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/profiles" component={Profiles} />
                 <Switch>
                   <PrivateRoute
                     exact
