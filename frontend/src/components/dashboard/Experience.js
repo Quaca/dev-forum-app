@@ -6,7 +6,8 @@ import PropTypes from "prop-types";
 import { deleteExperience } from "../../actions/profileActions";
 
 class Experience extends Component {
-  onDeleteClick = id => {
+  onDeleteClick = id => e => {
+    e.preventDefault();
     this.props.deleteExperience(id);
   };
 
