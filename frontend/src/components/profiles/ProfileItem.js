@@ -16,7 +16,7 @@ class ProfileItem extends Component {
               className="rounded-circle img-fluid"
             />
           </div>
-          <div className="col-lg-6 col-md-4 col-8">
+          <div className="col-6">
             <h3>{profile.user.name}</h3>
             <p>
               {profile.status}{" "}
@@ -33,11 +33,11 @@ class ProfileItem extends Component {
               View profile
             </Link>
           </div>
-          <div className="col-md-6 d-none d-md-block">
+          <div className="col-4">
             <h4>Skill set</h4>
             <ul className="list-gorup" style={{ paddingLeft: "0px" }}>
               {profile.skills.slice(0, 4).map((skill, index) => (
-                <li key={index} className="list-group-item">
+                <li key={index} className="list-group-item pd-05">
                   <i className="fa fa-check pr-1" />
                   {skill}
                 </li>

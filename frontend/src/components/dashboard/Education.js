@@ -6,7 +6,8 @@ import PropTypes from "prop-types";
 import { deleteEducation } from "../../actions/profileActions";
 
 class Education extends Component {
-  onDeleteClick = id => {
+  onDeleteClick = id => e => {
+    e.preventDefault();
     this.props.deleteEducation(id);
   };
 
@@ -52,7 +53,7 @@ class Education extends Component {
   }
 }
 
-Education.PropTypes = {
+Education.propTypes = {
   deleteEducation: PropTypes.func.isRequired
 };
 export default connect(
