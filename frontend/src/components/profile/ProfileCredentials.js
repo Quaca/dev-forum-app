@@ -70,22 +70,34 @@ class ProfileCredentials extends Component {
     ));
 
     return (
-      <div className="row">
+      <div className="row mb-3">
         <div className="col-md-6">
-          <h3 className="text-center text-info">Experience</h3>
-          {expItems.length > 0 ? (
-            <ul className="list-group">{expItems}</ul>
-          ) : (
-            <p className="text-center">No experience found</p>
-          )}
+          <div className="post">
+            <div className="postinfotop">
+              <h3 className="text-info">Experience</h3>
+            </div>
+            <div className="posttext">
+              {expItems.length > 0 ? (
+                <ul className="list-group">{expItems}</ul>
+              ) : (
+                <p className="text-center">No experience found</p>
+              )}
+            </div>
+          </div>
         </div>
         <div className="col-md-6">
-          <h3 className="text-center text-info">Education</h3>
-          {eduItems.length > 0 ? (
-            <ul className="list-group">{eduItems}</ul>
-          ) : (
-            <p className="text-center">No education found</p>
-          )}
+          <div className="post">
+            <div className="postinfotop">
+              <h3 className="text-info">Education</h3>
+            </div>
+            <div className="posttext">
+              {eduItems.length > 0 ? (
+                <ul className="list-group">{eduItems}</ul>
+              ) : (
+                <p className="text-center">No education found</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     );

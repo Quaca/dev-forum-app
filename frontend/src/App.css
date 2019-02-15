@@ -273,9 +273,14 @@ a:hover {
   padding-top: 7px;
 }
 
-.post h2 {
+.post h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #363838;
-  font-size: 18px;
+  font-size: 24px;
   margin: 10px 0;
 }
 
@@ -483,9 +488,8 @@ ul.socialicons li a:hover {
 }
 
 /*----Register----*/
-.postinfotop h2 {
+.postinfotop {
   color: #363838;
-  font-size: 14px;
   padding: 20px;
   margin: 0;
   border-bottom: solid 1px #f1f1f1;
