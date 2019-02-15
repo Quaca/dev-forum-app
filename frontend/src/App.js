@@ -17,6 +17,7 @@ import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
+import NotFound from "./components/not-found/NotFound";
 
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
@@ -79,6 +80,7 @@ class App extends Component {
                 <Switch>
                   <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 </Switch>
+                <Route exact path="/not-found" component={NotFound} />
               </div>
             </section>
             <Footer />
