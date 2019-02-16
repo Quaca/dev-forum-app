@@ -17,7 +17,9 @@ import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
+import Feed from "././components/layout/Feed";
 import NotFound from "./components/not-found/NotFound";
+import PostForm from "./components/posts/PostForm";
 
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
@@ -79,6 +81,12 @@ class App extends Component {
                 </Switch>
                 <Switch>
                   <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                </Switch>
+                <Switch>
+                  <PrivateRoute exact path="/feed" component={Feed} />
+                </Switch>
+                <Switch>
+                  <PrivateRoute exact path="/new-topic" component={PostForm} />
                 </Switch>
                 <Route exact path="/not-found" component={NotFound} />
               </div>

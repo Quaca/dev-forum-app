@@ -18,9 +18,11 @@ class Navbar extends Component {
     const authLinks = (
       <div className="float-right">
         <div className="float-left">
-          <form action="" method="post" className="form">
-            <button className="btn btn-primary">Start new topic</button>
-          </form>
+          <Link to="/new-topic">
+            <button type="button" className="btn btn-info mb-3 float-left">
+              Create new topic
+            </button>
+          </Link>
         </div>
         <div className="env float-left">
           <i className="fa fa-envelope" />
