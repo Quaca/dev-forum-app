@@ -248,16 +248,17 @@ a:hover {
 }
 
 .post .user-info {
-  padding: 20px 0 15px 35px;
+  width: 15%;
+  padding: 20px 0 15px 15px;
 }
 
 .post .post-text {
+  width: 85%;
   padding-right: 30px;
   padding-top: 20px;
   padding-bottom: 15px;
-
-  color: #989c9e;
   font-size: 14px;
+  font-family: "Open Sans Light", sans-serif;
   line-height: 25px;
 }
 
@@ -546,6 +547,10 @@ ul.socialicons li a:hover {
   font-size: 12px;
 }
 
+.postinfobot button {
+  background-color: #1abc9c;
+}
+
 .agreebox {
   width: 20px;
 }
@@ -578,6 +583,71 @@ ul.socialicons li a:hover {
   color: #bdc3c7;
 }
 
+/* NEW TOPIC */
+.newtopic input[type="text"],
+.newtopic input[type="password"] {
+  border-radius: 2px;
+  box-shadow: none;
+  border: none;
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-size: 14px;
+  font-family: "Open Sans Light", sans-serif;
+  margin-bottom: 20px;
+  height: 50px;
+}
+.newtopic input::placeholder,
+.newtopic textarea::placeholder {
+  color: #989c9e;
+}
+
+.newtopic select {
+  border-radius: 2px;
+  box-shadow: none;
+  border: solid 1px #cfd5d7;
+  background-color: #ffffff;
+
+  font-size: 14px;
+  font-family: "Open Sans Light", sans-serif;
+  margin-bottom: 20px;
+  height: 50px;
+}
+
+.newtopic select:hover,
+.newtopic select:focus,
+.newtopic select:active {
+  box-shadow: none;
+}
+
+.newtopic textarea {
+  border-radius: 2px;
+  box-shadow: none;
+  border: none;
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-size: 14px;
+  font-family: "Open Sans Light", sans-serif;
+  margin-bottom: 20px;
+  height: 150px;
+}
+.newtopic textarea:focus,
+.newtopic textarea:active {
+  background-color: #f1f1f1;
+  box-shadow: none;
+}
+
+.newtopic p {
+  font-size: 14px;
+  color: #363838;
+  font-family: "Open Sans Light", sans-serif;
+}
+
+.newtopcheckbox input {
+  margin-top: 5px;
+  width: 18px;
+  height: 18px;
+}
+
 /*--- Less than 767px ---*/
 
 @media (max-width: 767px) {
@@ -587,6 +657,16 @@ ul.socialicons li a:hover {
   }
   .selecttopic {
     display: none;
+  }
+  .post .user-info {
+    width: 30%;
+    padding: 15px 0 15px 15px;
+  }
+  .post .post-text {
+    width: 70%;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
@@ -598,6 +678,17 @@ ul.socialicons li a:hover {
   }
   .post .posttext {
     padding: 15px 15px 15px 15px;
+  }
+  .post .user-info {
+    width: 15%;
+    padding: 15px 0 15px 15px;
+  }
+
+  .post .post-text {
+    width: 85%;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 

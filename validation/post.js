@@ -6,12 +6,20 @@ module.exports = function validatePostInput(data) {
 
   data.text = isEmpty(data.text) ? "" : data.text;
 
-  if (!validator.isLength(data.text, { min: 10, max: 300 })) {
-    errors.text = "Post must be between 10 and 300 characters";
+  if (!validator.isLength(data.title, { min: 5, max: 30 })) {
+    errors.title = "Post title must be between 5 and 30 characters";
   }
 
-  if (validator.isEmpty(data.text)) {
-    errors.email = "Text field is required";
+  if (validator.isEmpty(data.title)) {
+    errors.title = "Post field is required";
+  }
+
+  if (!validator.isLength(data.description, { min: 10, max: 300 })) {
+    errors.description = "Post must be between 10 and 300 characters";
+  }
+
+  if (validator.isEmpty(data.description)) {
+    errors.description = "Description field is required";
   }
 
   return {

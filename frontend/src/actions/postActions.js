@@ -3,15 +3,12 @@ import axios from "axios";
 import { CREATE_POST, GET_POSTS, GET_ERRORS, POST_LOADING } from "./types";
 
 // Create post
-export const createPost = postData => dispatch => {
+export const createPost = (postData, history) => dispatch => {
   axios
-    .post("/api/posts", postData)
-    .then(res =>
-      dispatch({
-        type: CREATE_POST,
-        payload: res.data
-      })
-    )
+    .post("/api/posts/", postData)
+    .then(res => {
+      history.push("/dashboard");
+    })
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

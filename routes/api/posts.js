@@ -30,7 +30,8 @@ router.post(
     }
 
     const newPost = new Post({
-      text: req.body.text,
+      title: req.body.title,
+      description: req.body.description,
       name: req.body.name,
       avatar: req.body.avatar,
       user: req.user.id
