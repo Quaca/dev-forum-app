@@ -11,7 +11,7 @@ class Post extends Component {
   };
 
   render() {
-    const { post, loading } = this.props.post;
+    const { post, loading } = this.props;
     const { auth } = this.props;
     console.log(auth);
     let postContent;
@@ -45,7 +45,8 @@ Post.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  post: state.post,
+  post: state.post.post,
+  loading: state.post.loading,
   auth: state.auth
 });
 

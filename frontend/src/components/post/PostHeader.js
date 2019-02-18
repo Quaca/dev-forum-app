@@ -12,17 +12,13 @@ import icon1 from "../../images/icon1.jpg";
 import icon2 from "../../images/icon2.jpg";
 
 class PostHeader extends Component {
-  componentDidMount = () => {
-    console.log("item");
-  };
-
-  onLikeClick = id => {
+  onLikeClick = () => {
     // console.log("liked");
-    this.props.addLike(id);
+    this.props.addLike(this.props.post._id);
   };
-  onUnlikeClick = id => {
+  onUnlikeClick = () => {
     // console.log("unliked");
-    this.props.removeLike(id);
+    this.props.removeLike(this.props.post._id);
   };
 
   findUserLike = likes => {
@@ -72,7 +68,7 @@ class PostHeader extends Component {
               </button> */}
           <div className="likeblock float-left">
             <div
-              onClick={_ => this.onLikeClick(post._id)}
+              onClick={this.onLikeClick}
               className={classnames("up", {
                 liked: this.findUserLike(post.likes)
               })}
@@ -80,7 +76,7 @@ class PostHeader extends Component {
               <i className="far fa-thumbs-up" />
               {post.likes !== undefined ? post.likes.length : null}
             </div>
-            <div onClick={_ => this.onUnlikeClick(post._id)} className="down">
+            <div onClick={this.onUnlikeClick} className="down">
               <i className="far fa-thumbs-down" />
             </div>
           </div>
