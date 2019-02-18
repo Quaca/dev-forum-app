@@ -262,6 +262,13 @@ a:hover {
   line-height: 25px;
 }
 
+.post .post-text p {
+  color: #989c9e;
+  font-size: 14px;
+  font-family: "Open Sans Light" sans-serif;
+  line-height: 25px;
+}
+
 .post .avatar {
   width: 37px;
   margin-left: 5px;
@@ -337,6 +344,52 @@ h6 {
   font-size: 14px;
 }
 
+.postinfo {
+  border-top: solid 1px #f1f1f1;
+  line-height: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.postinfo .likeblock {
+  width: 30%;
+}
+.postinfo .other {
+  width: 70%;
+}
+
+.up {
+  color: #9da6aa;
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+.up.liked {
+  color: #1abc9c;
+}
+
+.up i,
+.down i {
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.up:hover {
+  cursor: pointer;
+  color: #1abc9c;
+}
+
+.down {
+  color: #9da6aa;
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.down:hover {
+  cursor: pointer;
+  color: #db7a7a;
+}
 /*--- Sidebar ---*/
 
 .sidebar-block {
@@ -588,12 +641,11 @@ ul.socialicons li a:hover {
 .newtopic input[type="password"] {
   border-radius: 2px;
   box-shadow: none;
-  border: none;
   background-color: #f1f1f1;
   padding: 20px;
   font-size: 14px;
   font-family: "Open Sans Light", sans-serif;
-  margin-bottom: 20px;
+  margin-: 20px;
   height: 50px;
 }
 .newtopic input::placeholder,
@@ -609,7 +661,6 @@ ul.socialicons li a:hover {
 
   font-size: 14px;
   font-family: "Open Sans Light", sans-serif;
-  margin-bottom: 20px;
   height: 50px;
 }
 
@@ -622,12 +673,10 @@ ul.socialicons li a:hover {
 .newtopic textarea {
   border-radius: 2px;
   box-shadow: none;
-  border: none;
   background-color: #f1f1f1;
   padding: 20px;
   font-size: 14px;
   font-family: "Open Sans Light", sans-serif;
-  margin-bottom: 20px;
   height: 150px;
 }
 .newtopic textarea:focus,
@@ -668,6 +717,9 @@ ul.socialicons li a:hover {
     padding-top: 15px;
     padding-bottom: 15px;
   }
+  .postinfo .likeblock {
+    width: 30%;
+  }
 }
 
 /*--- Small devices (768-991px) ---*/
@@ -689,6 +741,9 @@ ul.socialicons li a:hover {
     padding-right: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
+  }
+  .postinfo .likeblock {
+    width: 30%;
   }
 }
 

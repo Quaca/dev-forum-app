@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import classnames from "classnames";
 import { createPost } from "../../actions/postActions";
 
 import avt1 from "../../images/avt1.jpg";
@@ -12,6 +13,12 @@ class PostForm extends Component {
     title: "",
     description: "",
     errors: {}
+  };
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   };
 
   changeText = e => {
@@ -35,17 +42,18 @@ class PostForm extends Component {
 
   render() {
     const { errors } = this.state;
+    const { user } = this.props.auth;
 
     return (
       <div className="row">
         <div className="col-lg-8 col-12">
           <div className="post">
-            <form action="" className="form newtopic" onSubmit={this.onSubmit}>
+            <form className="form newtopic" onSubmit={this.onSubmit}>
               <div className="topwrap">
                 <div className="user-info float-left">
                   <div className="avatar">
                     <img
-                      src={avt1}
+                      src={user.avatar}
                       alt=""
                       height="36px"
                       width="36px"
@@ -59,17 +67,27 @@ class PostForm extends Component {
                   </div>
                 </div>
                 <div className="post-text float-left">
-                  <input
-                    type="text"
-                    placeholder="Enter Topic Title"
-                    className="form-control"
-                    name="title"
-                    value={this.state.title}
-                    onChange={this.changeText}
-                  />
-                  {errors.title && (
-                    <div className="invalid-feedback mb-2">{errors.title}</div>
-                  )}
+                  <div
+                    className={classnames("", {
+                      "mb-4": !errors.title
+                    })}
+                  >
+                    <input
+                      type="text"
+                      placeholder="Enter Topic Title"
+                      className={classnames("form-control", {
+                        "is-invalid": errors.title
+                      })}
+                      name="title"
+                      value={this.state.title}
+                      onChange={this.changeText}
+                    />
+                    {errors.title && (
+                      <div className="invalid-feedback mb-2">
+                        {errors.title}
+                      </div>
+                    )}
+                  </div>
                   {/* <div className="row">
                     <div className="col-md-6">
                       <select
@@ -98,14 +116,27 @@ class PostForm extends Component {
                       </select>
                     </div>
                   </div> */}
-                  <textarea
-                    className="form-control"
-                    placeholder="Description"
-                    value={this.state.description}
-                    onChange={this.changeText}
-                    name="description"
-                    id="description"
-                  />
+                  <div
+                    className={classnames("", {
+                      "mb-4": !errors.description
+                    })}
+                  >
+                    <textarea
+                      className={classnames("form-control", {
+                        "is-invalid": errors.description
+                      })}
+                      placeholder="Description"
+                      value={this.state.description}
+                      onChange={this.changeText}
+                      name="description"
+                      id="description"
+                    />
+                    {errors.description && (
+                      <div className="invalid-feedback mb-2">
+                        {errors.description}
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <div className="clearfix" />
               </div>

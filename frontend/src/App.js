@@ -20,6 +20,7 @@ import Profile from "./components/profile/Profile";
 import Feed from "././components/layout/Feed";
 import NotFound from "./components/not-found/NotFound";
 import PostForm from "./components/posts/PostForm";
+import Post from "./components/post/Post";
 
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
@@ -84,6 +85,9 @@ class App extends Component {
                 </Switch>
                 <Switch>
                   <PrivateRoute exact path="/feed" component={Feed} />
+                </Switch>
+                <Switch>
+                  <PrivateRoute exact path="/post/:id" component={Post} />
                 </Switch>
                 <Switch>
                   <PrivateRoute exact path="/new-topic" component={PostForm} />

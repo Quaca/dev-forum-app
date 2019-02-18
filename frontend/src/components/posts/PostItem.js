@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import avt1 from "../../images/avt1.jpg";
 import logo from "../../images/logo.jpg";
@@ -10,6 +11,7 @@ import icon2 from "../../images/icon2.jpg";
 
 class PostItem extends Component {
   render() {
+    const { post, auth } = this.props;
     return (
       <div className="post">
         <div className="row">
@@ -18,13 +20,13 @@ class PostItem extends Component {
               <div className="col-2 user-info pull-left">
                 <div className="avatar">
                   <img
-                    src={avt1}
+                    src={post.avatar}
                     alt=""
                     height="36px"
                     width="36px"
                     className="fit-image"
                   />
-                  <div className="status green">&nbsp;</div>
+                  {/* <div className="status green">&nbsp;</div> */}
                 </div>
                 <div className="icons">
                   <img src={icon1} alt="" />
@@ -32,18 +34,17 @@ class PostItem extends Component {
                 </div>
               </div>
               <div className="col-10 post-text pull-left">
-                <h2>10 Kids Unaware of Their Halloween Costume</h2>
-                <p>
-                  It's one thing to subject yourself to a Halloween costume
-                  mishap because, hey, that's your prerogative.
-                </p>
+                <h2>
+                  <Link to={`/post/${post._id}`}>{post.title}</Link>
+                </h2>
+                <p>{post.description}</p>
               </div>
             </div>
           </div>
           <div className="col-2 post-info pull-left">
             <div className="comments">
               <div className="comment-bg">
-                560
+                {post.comments.length}
                 <div className="mark" />
               </div>
             </div>
@@ -62,4 +63,13 @@ class PostItem extends Component {
   }
 }
 
-export default connect(null)(PostItem);
+PostItem.propTypes = {
+  auth: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(PostItem);

@@ -6,6 +6,9 @@ import Posts from "../posts/Posts";
 import { getPosts } from "../../actions/postActions";
 
 class Feed extends Component {
+  componentDidMount = () => {
+    this.props.getPosts();
+  };
   render() {
     const { posts, loading } = this.props.post;
     let postContent;
@@ -19,7 +22,7 @@ class Feed extends Component {
       <div className="feed">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">Amar</div>
+            <div className="col-md-12">{postContent}</div>
           </div>
         </div>
       </div>
