@@ -157,9 +157,7 @@ class Register extends Component {
 
                 <div className="float-right postreply">
                   <div className="float-left smile">
-                    <a href="">
-                      <i className="far fa-smile" />
-                    </a>
+                    <i className="far fa-smile" />
                   </div>
 
                   <div className="float-left">

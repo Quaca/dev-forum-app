@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import classnames from "classnames";
 import { createPost } from "../../actions/postActions";
 
-import avt1 from "../../images/avt1.jpg";
 import icon1 from "../../images/icon1.jpg";
 import icon2 from "../../images/icon2.jpg";
 

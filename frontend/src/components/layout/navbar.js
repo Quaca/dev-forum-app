@@ -29,7 +29,7 @@ class Navbar extends Component {
         </div>
 
         <div className="avatar float-left dropdown">
-          <a href="#" id="dropdownMenuLink" data-toggle="dropdown">
+          <a id="dropdownMenuLink" data-toggle="dropdown">
             <img
               height="36px"
               width="36px"

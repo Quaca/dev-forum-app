@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { Link } from "react-router-dom";
 import { addLike, removeLike } from "../../actions/postActions";
-
-import avt1 from "../../images/avt1.jpg";
-import logo from "../../images/logo.jpg";
-import slider1 from "../../images/slide.jpg";
 import icon1 from "../../images/icon1.jpg";
 import icon2 from "../../images/icon2.jpg";
 

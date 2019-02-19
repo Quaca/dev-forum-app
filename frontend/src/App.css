@@ -269,6 +269,21 @@ a:hover {
   line-height: 25px;
 }
 
+.post-text textarea {
+  border-radius: 2px;
+  box-shadow: none;
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-size: 14px;
+  font-family: "Open Sans Light", sans-serif;
+  height: 150px;
+}
+.post-text textarea:focus,
+.post-text textarea:active {
+  background-color: #f1f1f1;
+  box-shadow: none;
+}
+
 .post .avatar {
   width: 37px;
   margin-left: 5px;
@@ -346,9 +361,17 @@ h6 {
 
 .postinfo {
   border-top: solid 1px #f1f1f1;
-  line-height: 50px;
+  /* line-height: 50px; */
   padding-right: 15px;
   padding-left: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.postsubmit {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
 }
 
 .postinfo .likeblock {

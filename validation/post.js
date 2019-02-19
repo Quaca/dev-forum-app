@@ -4,7 +4,8 @@ const isEmpty = require("./is-empty");
 module.exports = function validatePostInput(data) {
   let errors = {};
 
-  data.text = isEmpty(data.text) ? "" : data.text;
+  data.title = isEmpty(data.title) ? "" : data.title;
+  data.description = isEmpty(data.description) ? "" : data.description;
 
   if (!validator.isLength(data.title, { min: 5, max: 30 })) {
     errors.title = "Post title must be between 5 and 30 characters";

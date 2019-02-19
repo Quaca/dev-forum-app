@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import PostHeader from "./PostHeader";
+import CommentFeed from "./CommentFeed";
+import CommentForm from "./CommentForm";
 import { getPost } from "../../actions/postActions";
 import Spinner from "../common/Spinner";
 
@@ -13,15 +15,15 @@ class Post extends Component {
   render() {
     const { post, loading } = this.props;
     const { auth } = this.props;
-    console.log(auth);
     let postContent;
-
-    if (post === null || loading) {
+    if (post === null || loading || Object.keys(post).length === 0) {
       postContent = <Spinner />;
     } else {
       postContent = (
         <div>
           <PostHeader post={post} auth={auth} />
+          {/* <CommentFeed postId={post._id} comments={post.comments} /> */}
+          <CommentForm postId={post._id} />
         </div>
       );
     }
