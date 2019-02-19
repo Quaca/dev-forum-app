@@ -1,18 +1,25 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import classnames from "classnames";
 import icon1 from "../../images/icon1.jpg";
 import icon2 from "../../images/icon2.jpg";
+import { deleteComment } from "../../actions/postActions";
 
 class CommentItem extends Component {
+  onDeleteClick = () => {
+    const { postId } = this.props;
+    this.props.deleteComment(postId, this.props.comment._id);
+  };
+
   render() {
-    const { post } = this.props;
+    const { comment, user } = this.props;
     return (
       <div className="post">
         <div className="topwrap">
           <div className="user-info float-left">
             <div className="avatar">
               <img
-                src={post.avatar}
+                src={comment.avatar}
                 alt=""
                 height="36px"
                 width="36px"
@@ -26,19 +33,22 @@ class CommentItem extends Component {
             </div>
           </div>
           <div className="post-text float-left">
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
+            <p>{comment.text}</p>
           </div>
           <div className="clearfix" />
         </div>
         <div className="postinfo">
-          {/* <button type="button" className="btn btn-light">
-                <i className="text-info far fa-thumbs-up" />
-                <span className="badge badge-light">
-                  {post.likes !== undefined ? post.likes.length : null}
-                </span>
-              </button> */}
-          <div className="likeblock float-left">
+          {comment.user === user.id ? (
+            <button
+              type="button"
+              onClick={this.onDeleteClick}
+              className="btn btn-danger float-right"
+            >
+              {" "}
+              Delete comment
+            </button>
+          ) : null}
+          {/* <div className="likeblock float-left">
             <div
               onClick={this.onLikeClick}
               className={classnames("up", {
@@ -53,6 +63,7 @@ class CommentItem extends Component {
             </div>
           </div>
           <div className="other float-left" />
+          <div className="clearfix" /> */}
           <div className="clearfix" />
         </div>
       </div>
@@ -60,4 +71,11 @@ class CommentItem extends Component {
   }
 }
 
-export default CommentItem;
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
+
+export default connect(
+  mapStateToProps,
+  { deleteComment }
+)(CommentItem);

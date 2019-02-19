@@ -22,7 +22,7 @@ class Post extends Component {
       postContent = (
         <div>
           <PostHeader post={post} auth={auth} />
-          {/* <CommentFeed postId={post._id} comments={post.comments} /> */}
+          <CommentFeed postId={post._id} comments={post.comments} />
           <CommentForm postId={post._id} />
         </div>
       );

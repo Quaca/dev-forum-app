@@ -368,6 +368,10 @@ h6 {
   padding-bottom: 8px;
 }
 
+.postinfo button {
+  font-size: 12px;
+}
+
 .postsubmit {
   display: flex;
   flex-flow: row wrap;

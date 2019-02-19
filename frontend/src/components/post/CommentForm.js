@@ -38,6 +38,7 @@ class CommentForm extends Component {
   render() {
     const { errors } = this.state;
     const { post } = this.props;
+    const { user } = this.props.auth;
     return (
       <div className="post">
         <form onSubmit={this.onSubmit} className="form">
@@ -45,7 +46,7 @@ class CommentForm extends Component {
             <div className="user-info float-left">
               <div className="avatar">
                 <img
-                  src={post.avatar}
+                  src={user.avatar}
                   alt=""
                   height="36px"
                   width="36px"
