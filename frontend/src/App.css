@@ -304,7 +304,7 @@ h5,
 h6 {
   color: #363838;
   font-size: 24px;
-  margin: 10px 0;
+  /* margin: 10px 0; */
 }
 
 .post .comments {
@@ -357,6 +357,19 @@ h6 {
 
 .post .time i {
   font-size: 14px;
+}
+
+.topinfo {
+  border-bottom: solid 1px #f1f1f1;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.topinfoheader {
+  font-weight: bold;
+  font-size: 12px;
+  color: #01426d;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 .postinfo {
@@ -747,6 +760,9 @@ ul.socialicons li a:hover {
   .postinfo .likeblock {
     width: 50%;
   }
+  .postinfo .other {
+    width: 50%;
+  }
 }
 
 /*--- Small devices (768-991px) ---*/
@@ -771,6 +787,10 @@ ul.socialicons li a:hover {
   }
   .postinfo .likeblock {
     width: 40%;
+  }
+
+  .postinfo .other {
+    width: 60%;
   }
 }
 

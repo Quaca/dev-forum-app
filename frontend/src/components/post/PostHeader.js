@@ -1,12 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { addLike, removeLike } from "../../actions/postActions";
+import { addLike, removeLike, deletePost } from "../../actions/postActions";
 import icon1 from "../../images/icon1.jpg";
 import icon2 from "../../images/icon2.jpg";
 
 class PostHeader extends Component {
+  onDeleteClick = () => {
+    this.props.deletePost(this.props.post._id);
+  };
+
   onLikeClick = () => {
     // console.log("liked");
     this.props.addLike(this.props.post._id);
@@ -27,10 +31,13 @@ class PostHeader extends Component {
   };
 
   render() {
-    const { post } = this.props;
+    const { post, auth } = this.props;
 
     return (
       <div className="post">
+        <div className="topinfo">
+          <h6 className="topinfoheader">{post.name}</h6>
+        </div>
         <div className="topwrap">
           <div className="user-info float-left">
             <div className="avatar">
@@ -75,7 +82,20 @@ class PostHeader extends Component {
               <i className="far fa-thumbs-down" />
             </div>
           </div>
-          <div className="other float-left" />
+          <div className="other float-left">
+            <Fragment>
+              {post.user === auth.user.id ? (
+                <button
+                  type="button"
+                  onClick={this.onDeleteClick}
+                  className="btn btn-danger float-right"
+                >
+                  {" "}
+                  Delete post
+                </button>
+              ) : null}
+            </Fragment>
+          </div>
           <div className="clearfix" />
         </div>
       </div>
@@ -85,10 +105,11 @@ class PostHeader extends Component {
 
 PostHeader.propTypes = {
   addLike: PropTypes.func.isRequired,
-  removeLike: PropTypes.func.isRequired
+  removeLike: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { addLike, removeLike }
+  { addLike, removeLike, deletePost }
 )(PostHeader);

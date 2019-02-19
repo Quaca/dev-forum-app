@@ -15,6 +15,9 @@ class CommentItem extends Component {
     const { comment, user } = this.props;
     return (
       <div className="post">
+        <div className="topinfo">
+          <h6 className="topinfoheader">{comment.name}</h6>
+        </div>
         <div className="topwrap">
           <div className="user-info float-left">
             <div className="avatar">
