@@ -24,6 +24,7 @@ import Post from "./components/post/Post";
 
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
+import Landing from "./components/layout/Landing";
 
 //Check form token
 if (localStorage.jwtToken) {
@@ -48,6 +49,7 @@ class App extends Component {
             <Navbar />
             <section className="content">
               <div className="container">
+                <Route exact path="/" component={Landing} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profiles" component={Profiles} />
@@ -83,9 +85,10 @@ class App extends Component {
                 <Switch>
                   <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 </Switch>
-                <Switch>
+                {/* <Switch>
                   <PrivateRoute exact path="/feed" component={Feed} />
-                </Switch>
+                </Switch> */}
+                <Route exact path="/feed" component={Feed} />
                 <Switch>
                   <PrivateRoute exact path="/post/:id" component={Post} />
                 </Switch>

@@ -17,12 +17,12 @@ export const registerUser = (userData, history) => dispatch => {
     );
 };
 
-//Login user
+// Login user
 export const loginUser = userData => dispatch => {
   axios
     .post("/api/users/login", userData)
     .then(res => {
-      //Save to localstorafe
+      //Save to localstorage
       const { token } = res.data;
       //Set token to localstorage
       localStorage.setItem("jwtToken", token);

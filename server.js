@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
@@ -32,6 +33,15 @@ require("./config/passport")(passport);
 app.use("/api/profile", profile);
 app.use("/api/users", users);
 app.use("/api/posts", posts);
+
+// Server static assets if in production
+if (process.env.NODE_ENV === "production") {
+  // Set sattic folder
+  app.use(express.static("frontend/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend/build", "index.html"));
+  });
+}
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on post ${port}`));
