@@ -6,8 +6,8 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
+import Navbar from "./components/layout/navbar";
+import Footer from "./components/layout/footer";
 import CreateProfile from "./components/layout/CreateProfile";
 import EditProfile from "./components/layout/EditProfile";
 import AddExperience from "./components/career/AddExperience";
@@ -24,7 +24,7 @@ import Post from "./components/post/Post";
 
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
-import Landing from "./components/layout/Landing";
+import Landing from "./components/layout/landing";
 
 //Check form token
 if (localStorage.jwtToken) {
