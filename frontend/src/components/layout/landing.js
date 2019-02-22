@@ -38,7 +38,7 @@ class Landing extends Component {
     );
   }
 }
-Landing.proptypes = {
+Landing.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired
 };
 const mapStateToProps = state => ({
