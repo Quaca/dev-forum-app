@@ -1,20 +1,29 @@
 import React, { Component } from "react";
 import logo from "../../images/logo.jpg";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { clearProfile } from "../../actions/profileActions";
 import PropTypes from "prop-types";
 
 class Navbar extends Component {
+  state = {
+    background: "back1",
+    home: ""
+  };
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
     this.props.clearProfile();
   };
+
+  onButtonClick = pic => e => {
+    e.preventDefault();
+    this.props.triggerBackground(pic);
+  };
+
   render() {
     const { isAuthenticated, user } = this.props.auth;
-
     const authLinks = (
       <div className="float-right">
         <div className="float-left">
@@ -81,30 +90,48 @@ class Navbar extends Component {
                 </Link>
               </div>
               <div className="col-lg-3 col-md-4 col-4 selecttopic">
-                <div className="dropdown">
-                  <div
-                    className="dropdown-toggle"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                  >
-                    Borderlands
+                {this.props.isActive === true ? (
+                  <div className="dropdown">
+                    <button
+                      className="btn btn-info dropdown-toggle"
+                      type="button"
+                      id="dropdownMenu2"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Dropdown
+                    </button>
+                    <div
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenu2"
+                    >
+                      <button
+                        className="dropdown-item"
+                        type="button"
+                        onClick={this.onButtonClick("back1")}
+                      >
+                        Background(1)
+                      </button>
+                      <button
+                        className="dropdown-item"
+                        type="button"
+                        onClick={this.onButtonClick("back2")}
+                      >
+                        Background(2)
+                      </button>
+                      <button
+                        className="dropdown-item"
+                        type="button"
+                        onClick={this.onButtonClick("back3")}
+                      >
+                        Background(3)
+                      </button>
+                    </div>
                   </div>
-                  <div
-                    className="dropdown-menu dropdown-menu-right"
-                    aria-labelledby="dropdownMenuButton"
-                  >
-                    <a className="dropdown-item" href="/">
-                      Borderlands 1
-                    </a>
-                    <a className="dropdown-item" href="/">
-                      Borderlands 2
-                    </a>
-                    <a className="dropdown-item" href="/">
-                      Borderlands 3
-                    </a>
-                  </div>
-                </div>
+                ) : null}
               </div>
+
               <div className="col-lg-4 search d-none d-lg-block">
                 <div className="wrap">
                   <form action="/" method="post" className="form">
@@ -147,4 +174,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser, clearProfile }
-)(Navbar);
+)(withRouter(Navbar));

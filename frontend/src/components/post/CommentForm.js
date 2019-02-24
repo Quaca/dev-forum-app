@@ -37,7 +37,6 @@ class CommentForm extends Component {
   };
   render() {
     const { errors } = this.state;
-    const { post } = this.props;
     const { user } = this.props.auth;
     return (
       <div className="post">

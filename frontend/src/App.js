@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -26,6 +26,10 @@ import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
 import Landing from "./components/layout/landing";
 
+import background1 from "./images/back1.jpg";
+import background2 from "./images/back2.jpg";
+import background3 from "./images/back3.jpg";
+
 //Check form token
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -41,15 +45,57 @@ if (localStorage.jwtToken) {
 }
 
 class App extends Component {
+  state = {
+    background: background1,
+    isActive: false
+  };
+
+  updateBackground = pic => {
+    console.log(pic);
+    if (pic === "back1") {
+      this.setState({ background: background1 });
+    } else if (pic === "back2") {
+      this.setState({ background: background2 });
+    } else if (pic === "back3") {
+      this.setState({ background: background3 });
+    }
+  };
+
+  triggerActive = () => {
+    this.setState({ isActive: true });
+    // console.log("set to true");
+  };
+
+  triggerInactive = () => {
+    this.setState({ isActive: false });
+    // console.log("set to false");
+  };
+
   render() {
     return (
       <Provider store={store}>
         <Router>
           <div>
-            <Navbar />
+            <Navbar
+              triggerBackground={this.updateBackground}
+              isActive={this.state.isActive}
+            />
+            <Fragment>
+              <Route
+                exact
+                path="/"
+                component={() => (
+                  <Landing
+                    isActive={this.state.isActive}
+                    background={this.state.background}
+                    triggerActive={this.triggerActive}
+                    triggerInactive={this.triggerInactive}
+                  />
+                )}
+              />
+            </Fragment>
             <section className="content">
               <div className="container">
-                <Route exact path="/" component={Landing} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profiles" component={Profiles} />
@@ -85,9 +131,7 @@ class App extends Component {
                 <Switch>
                   <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 </Switch>
-                {/* <Switch>
-                  <PrivateRoute exact path="/feed" component={Feed} />
-                </Switch> */}
+
                 <Route exact path="/feed" component={Feed} />
                 <Switch>
                   <PrivateRoute exact path="/post/:id" component={Post} />

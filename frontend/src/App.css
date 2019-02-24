@@ -15,6 +15,15 @@ a:hover {
   padding: 0.5rem;
 }
 
+.background {
+  -ms-background-position-x: center;
+  -ms-background-position-y: bottom;
+  background-position: center;
+  height: 500px;
+
+  background-size: cover;
+}
+
 /*********************************************
 	-	SETTINGS FOR BANNER CONTAINERS	-
 **********************************************/
