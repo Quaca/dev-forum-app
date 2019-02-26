@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 
@@ -93,6 +93,7 @@ class Login extends Component {
                       {errors.password}
                     </div>
                   )}
+                  <Link to="/forgot-password">Forgot your password?</Link>
                 </div>
                 <div className="clearfix" />
               </div>

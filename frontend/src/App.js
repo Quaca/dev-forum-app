@@ -14,6 +14,7 @@ import AddExperience from "./components/career/AddExperience";
 import AddEducation from "./components/career/AddEducation";
 import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
+import ForgotProfile from "./components/authentication/ForgotPassword";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
@@ -29,6 +30,7 @@ import Landing from "./components/layout/landing";
 import background1 from "./images/back1.jpg";
 import background2 from "./images/back2.jpg";
 import background3 from "./images/back3.jpg";
+import ForgotPassword from "./components/authentication/ForgotPassword";
 
 //Check form token
 if (localStorage.jwtToken) {
@@ -98,6 +100,11 @@ class App extends Component {
               <div className="container">
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
+                <Route
+                  exact
+                  path="/forgot-password"
+                  component={ForgotPassword}
+                />
                 <Route exact path="/profiles" component={Profiles} />
                 <Route exact path="/profile/:handle" component={Profile} />
                 <Switch>

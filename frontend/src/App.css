@@ -605,6 +605,9 @@ ul.socialicons li a:hover {
   font-size: 14px;
   line-height: 25px;
 }
+.posttext p {
+  font-size: 12px;
+}
 
 .input-fields input[type="text"],
 .input-fields input[type="password"] {
