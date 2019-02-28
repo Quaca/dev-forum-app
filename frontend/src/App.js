@@ -14,7 +14,6 @@ import AddExperience from "./components/career/AddExperience";
 import AddEducation from "./components/career/AddEducation";
 import Register from "./components/authentication/Register";
 import Login from "./components/authentication/Login";
-import ForgotProfile from "./components/authentication/ForgotPassword";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
