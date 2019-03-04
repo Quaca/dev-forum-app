@@ -186,4 +186,46 @@ router.post("/forgotPassword", (req, res) => {
   });
 });
 
+router.get("/reset", (req, res) => {
+  User.findOne({
+    $and: [
+      { resetPasswordToken: req.query.resetPasswordToken },
+      { resetPasswordExpiration: { $gt: Date.now() } }
+    ]
+  }).then(user => {
+    if (user == null) {
+      res.status(400).json("Password reset link is invalid or expired");
+    } else {
+      res.status(200).json({
+        id: user._id,
+        message: "Password reset link is ok"
+      });
+    }
+  });
+});
+
+router.put("/updatePassword", (req, res) => {
+  User.findOne({ _id: req.body.id }).then(user => {
+    if (
+      user.resetPasswordToken === req.body.resetPasswordToken &&
+      user.resetPasswordExpiration > Date.now()
+    ) {
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(req.body.password, salt).then(hash => {
+          user
+            .update({
+              password: hash,
+              resetPasswordToken: null,
+              resetPasswordExpiration: null
+            })
+            .then(user => res.status(200).json("Password updated"))
+            .catch(err => console.log(err));
+        });
+      });
+    } else {
+      res.status(404).json("User doesn't exist in database");
+    }
+  });
+});
+
 module.exports = router;

@@ -30,6 +30,7 @@ import background1 from "./images/back1.jpg";
 import background2 from "./images/back2.jpg";
 import background3 from "./images/back3.jpg";
 import ForgotPassword from "./components/authentication/ForgotPassword";
+import ResetPassword from "./components/authentication/ResetPassword";
 
 //Check form token
 if (localStorage.jwtToken) {
@@ -103,6 +104,11 @@ class App extends Component {
                   exact
                   path="/forgot-password"
                   component={ForgotPassword}
+                />
+                <Route
+                  exact
+                  path="/reset-password/:token"
+                  component={ResetPassword}
                 />
                 <Route exact path="/profiles" component={Profiles} />
                 <Route exact path="/profile/:handle" component={Profile} />

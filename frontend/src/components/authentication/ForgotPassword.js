@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import classnames from "classnames";
 import validator from "validator";
 import axios from "axios";
@@ -10,10 +11,15 @@ class ForgotPassword extends Component {
     error: false
   };
 
+  componentDidMount = () => {
+    if (this.props.isAuthenticated) {
+      this.props.history.push("/feed");
+    }
+  };
+
   changeText = e => {
     this.validate(e.target.value);
     this.setState({ email: e.target.value });
-    // console.log(this.state);
   };
 
   sendMail = e => {
@@ -116,4 +122,7 @@ class ForgotPassword extends Component {
   }
 }
 
-export default ForgotPassword;
+const mapStateToProps = state => ({
+  isAuthenticated: state.authenticated
+});
+export default connect(mapStateToProps)(ForgotPassword);
